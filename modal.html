@@ -9,6 +9,18 @@
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <style>
+      .bg-smoke {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+      .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
     <div id="app">
@@ -18,24 +30,26 @@
       >
         View Modal
       </button>
-      <div
-        v-if="modal"
-        class="bg-black absolute bottom-0 left-0 pin-t pin-l h-screen w-full flex items-center justify-center"
-      >
-        <div class="bg-white p-4 rounded w-1/3">
-          <h2 class="mb-2">Hello</h2>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse alias
-            nisi sunt blanditiis illum consectetur
-            <button
-              @click="modalAction()"
-              class="bg-teal-200 text-white font-bold px-4 mt-4 py-2 rounded-full"
-            >
-              Close
-            </button>
-          </p>
+      <transition name="fade">
+        <div
+          v-if="modal"
+          class="bg-smoke absolute bottom-0 left-0 pin-t pin-l h-screen w-full flex items-center justify-center"
+        >
+          <div class="bg-white p-4 rounded w-1/3">
+            <h2 class="mb-2">Hello</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse
+              alias nisi sunt blanditiis illum consectetur
+              <button
+                @click="modalAction()"
+                class="bg-teal-200 text-white font-bold px-4 mt-4 py-2 rounded-full"
+              >
+                Close
+              </button>
+            </p>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -48,9 +62,9 @@
         methods: {
           modalAction() {
             if (this.modal == false) {
-              this.modal = true
+              this.modal = true;
             } else {
-              this.modal = false
+              this.modal = false;
             }
           }
         }
