@@ -12,7 +12,10 @@
   </head>
   <body class="bg-gray-100">
     <div id="app">
-      <button class="bg-teal-200 text-white font-bold px-4 py-2 rounded-full">
+      <button
+        @click="modalAction()"
+        class="bg-teal-200 text-white font-bold px-4 py-2 rounded-full"
+      >
         View Modal
       </button>
       <div
@@ -25,15 +28,14 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse alias
             nisi sunt blanditiis illum consectetur
             <button
-              class="mt-4 bg-teal-200 text-white font-bold px-4 py-2 rounded-full"
+              @click="modalAction()"
+              class="bg-teal-200 text-white font-bold px-4 mt-4 py-2 rounded-full"
             >
-              close
+              Close
             </button>
           </p>
         </div>
       </div>
-      {{modal}}
-      <input type="text" v-model="modal">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -42,6 +44,15 @@
         el: "#app",
         data: {
           modal: false
+        },
+        methods: {
+          modalAction() {
+            if (this.modal == false) {
+              this.modal = true
+            } else {
+              this.modal = false
+            }
+          }
         }
       });
     </script>
