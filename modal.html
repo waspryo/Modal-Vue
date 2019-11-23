@@ -10,10 +10,14 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-400">
-    <div class="flex justify-center items-center h-screen">
-      <div id="app" class="w-1/2 bg-white shadow-lg rounded p-4 mt-4">
-        {{ message }}
+  <body class="bg-gray-100">
+    <div id="app">
+
+      <button class="bg-teal-200 text-white font-bold px-4 py-2 rounded-full">
+          View Modal
+      </button>
+      <div class="bg-black absolute bottom-0 left-0 pin-t pin-l h-screen w-full">
+          
       </div>
     </div>
 
@@ -22,7 +26,7 @@
       var app = new Vue({
         el: "#app",
         data: {
-          message: "Hello Vue!"
+          
         }
       });
     </script>
