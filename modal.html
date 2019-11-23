@@ -16,6 +16,7 @@
         View Modal
       </button>
       <div
+        v-if="modal"
         class="bg-black absolute bottom-0 left-0 pin-t pin-l h-screen w-full flex items-center justify-center"
       >
         <div class="bg-white p-4 rounded w-1/3">
@@ -24,19 +25,24 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse alias
             nisi sunt blanditiis illum consectetur
             <button
-              class="mt-4 bg-teal-200 text-white font-bold px-4 py-2 rounded-full">
+              class="mt-4 bg-teal-200 text-white font-bold px-4 py-2 rounded-full"
+            >
               close
             </button>
           </p>
         </div>
       </div>
+      {{modal}}
+      <input type="text" v-model="modal">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       var app = new Vue({
         el: "#app",
-        data: {}
+        data: {
+          modal: false
+        }
       });
     </script>
   </body>
